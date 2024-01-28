@@ -370,7 +370,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 1.0001
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -512,6 +512,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1a36d5ca28e3c3c4e8222e5de5e16ecd, type: 3}
   - {fileID: 8300000, guid: d828b32d00539db4d90e48dc421c0f9b, type: 3}
   - {fileID: 8300000, guid: 3376d59426a84cf4fb8f4c9af9f20af9, type: 3}
+  - {fileID: 8300000, guid: 98786077817af4b49b082412e02934ee, type: 3}
+  - {fileID: 8300000, guid: 705371faee23f0a41be5706373ce6ad3, type: 3}
+  - {fileID: 8300000, guid: 1f473c1758029fa4eb989b83c191ead0, type: 3}
 --- !u!82 &1460473177
 AudioSource:
   m_ObjectHideFlags: 0
