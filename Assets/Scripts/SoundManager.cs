@@ -14,7 +14,7 @@ public class SoundManager : MonoBehaviour
     }
 
     /// <summary>
-    /// 0 Task, 1 open door, 2 locked door, 3 text sound
+    /// 0 task, 1 open door, 2 locked door, 3 text sound, 4 bed movement
     /// </summary>
     /// <param name="index">define sound index</param>
     /// <param name="volume">define sound volume</param>

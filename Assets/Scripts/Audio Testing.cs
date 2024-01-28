@@ -14,6 +14,9 @@ public class AudioTesting : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A)) soundManager.SelectAudio(0, 0.5f);
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            soundManager.SelectAudio(4, 0.5f);
+        }
     }
 }
