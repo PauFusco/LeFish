@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class Interactor : MonoBehaviour
 {
-    [SerializeField] private LayerMask InteractableLayer;
-    [SerializeField] private Camera PlayerCamera;
+    [SerializeField] private LayerMask Layer;
     [SerializeField] private float ThrowingForce;
     [SerializeField] private float InteractRange;
     [SerializeField] private Transform PlayerHand;
@@ -19,7 +18,7 @@ public class Interactor : MonoBehaviour
     {
         Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(r, out RaycastHit hitInfo, InteractRange, InteractableLayer))
+        if (Physics.Raycast(r, out RaycastHit hitInfo, InteractRange, Layer))
         {
             // Interact with objects using key E
             if (Input.GetKeyDown(KeyCode.E)) {
@@ -78,7 +77,7 @@ public class Interactor : MonoBehaviour
                 CurrentObjectRigidBody.isKinematic = false;
                 CurrentObjectCollider.enabled = true;
         
-                CurrentObjectRigidBody.AddForce(PlayerCamera.transform.forward * ThrowingForce, ForceMode.Impulse);
+                CurrentObjectRigidBody.AddForce(Camera.main.transform.forward * ThrowingForce, ForceMode.Impulse);
         
                 CurrentObjectRigidBody = null;
                 CurrentObjectCollider = null;

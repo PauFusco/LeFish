@@ -5,7 +5,7 @@ public class ProgressBar : MonoBehaviour
 {
     [SerializeField] private Image progressBar;
 
-    float progress, maxProgress = 100;
+    public float progress, maxProgress = 100;
     float lerpSpeed;
     
     // Start is called before the first frame update
@@ -14,34 +14,24 @@ public class ProgressBar : MonoBehaviour
         progress = 0;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FillProgressBar()
     {
+        while (progress < maxProgress)
+        {
+            lerpSpeed = 3f * Time.deltaTime;
+
+            // Fill
+            progressBar.fillAmount = Mathf.Lerp(progressBar.fillAmount, progress / maxProgress, lerpSpeed);
+            progress += 0.1f;
+
+            // Color
+            Color healthColor = Color.Lerp(Color.red, Color.green, (progress / maxProgress));
+            progressBar.color = healthColor;
+        }
+
         if (progress > maxProgress)
         {
             progress = maxProgress;
         }
-
-        lerpSpeed = 3f * Time.deltaTime;
-
-        FillProgressBar();
-        ColorChanger();
-    }
-
-    private void FillProgressBar()
-    {
-        progressBar.fillAmount = Mathf.Lerp(progressBar.fillAmount, progress / maxProgress, lerpSpeed);
-
-        if (progress < maxProgress)
-        {
-            progress += 0.1f;
-        }
-    }
-
-    void ColorChanger()
-    {
-        Color healthColor = Color.Lerp(Color.red, Color.green, (progress / maxProgress));
-
-        progressBar.color = healthColor;
     }
 }

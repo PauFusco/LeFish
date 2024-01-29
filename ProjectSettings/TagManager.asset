@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Item
   - Teleport
+  - FishTank
+  - Shower
   layers:
   - Default
   - TransparentFX
