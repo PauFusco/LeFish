@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    Vector3 PlayerMoveInput;
-    Vector2 MouseMoveInput;
+    private Vector3 PlayerMoveInput;
+    private Vector2 MouseMoveInput;
 
     private CharacterController Controller;
     private PlayerControls Controls;
@@ -14,8 +14,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float Speed;
     [SerializeField] private float Sensitivity;
 
-// Start is called before the first frame update
-    void Start()
+    private bool enable = true;
+
+    // Start is called before the first frame update
+    private void Start()
     {
         // initialize the controls we have created in the folders Controls
         Controls = new PlayerControls();
@@ -31,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
             PlayerMoveInput = new Vector3(ctx.ReadValue<Vector2>().x, PlayerMoveInput.y, ctx.ReadValue<Vector2>().y);
         };
 
-        Controls.Keyboard.UpDown.performed += ctx => 
+        Controls.Keyboard.UpDown.performed += ctx =>
         {
             PlayerMoveInput = new Vector3(PlayerMoveInput.x, ctx.ReadValue<float>(), PlayerMoveInput.z);
         };
@@ -40,8 +42,8 @@ public class PlayerMovement : MonoBehaviour
             PlayerMoveInput = new Vector3(PlayerMoveInput.x, ctx.ReadValue<float>(), PlayerMoveInput.z);
         };
 
-        Controls.Keyboard.MouseDelta.performed += ctx => 
-        { 
+        Controls.Keyboard.MouseDelta.performed += ctx =>
+        {
             MouseMoveInput = ctx.ReadValue<Vector2>();
         };
         Controls.Keyboard.MouseDelta.canceled += ctx =>
@@ -58,11 +60,12 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        Move();
+        if (enable) Move();
         Look();
     }
+
     private void Move()
     {
         Vector3 MoveVec = transform.TransformDirection(PlayerMoveInput);
@@ -70,11 +73,12 @@ public class PlayerMovement : MonoBehaviour
         Controller.Move(MoveVec * Speed * Time.deltaTime);
     }
 
-    float xRot;
+    private float xRot;
+
     private void Look()
     {
         Vector2 NonNormalizedDelta = MouseMoveInput * .5f * .1f;
-        
+
         xRot -= NonNormalizedDelta.y * Sensitivity;
 
         transform.Rotate(0f, NonNormalizedDelta.x * Sensitivity, 0f);

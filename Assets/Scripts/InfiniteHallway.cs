@@ -5,17 +5,38 @@ using UnityEngine;
 public class InfiniteHallway : MonoBehaviour
 {
     private bool toActivateUp = true;
-    private bool toActivateDown = true;
+    private bool toActivateDown = false;
+
+    public Collider tp1;
+
+    public GameObject tpTargetUp;
+
+    private PlayerMovement playerMovement;
 
     private void Update()
     {
-        if (transform.position.z <= -5 && toActivateUp)
+        playerMovement = gameObject.GetComponent<PlayerMovement>();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Teleport")
         {
-            Debug.Log("hola;");
-            Vector3 pos = transform.position;
-            pos.y += 5;
-            transform.position = pos;
-            toActivateUp = false;
+            Debug.Log("hola");
+
+            if (toActivateUp)
+            {
+                StartCoroutine("Teleport");
+            }
         }
+    }
+
+    private IEnumerator Teleport()
+    {
+        playerMovement.enabled = false;
+        yield return new WaitForSeconds(0.001f);
+        transform.position = new Vector3(transform.position.x, transform.position.y + 4.78f, transform.position.z);
+        yield return new WaitForSeconds(0.001f);
+        playerMovement.enabled = true;
     }
 }
