@@ -1,5 +1,8 @@
 using UnityEngine;
 
+// For selectable objects
+// To be selectable -> Interactable layer and rigid body component
+
 public class Target : MonoBehaviour
 {
     private Renderer renderer;

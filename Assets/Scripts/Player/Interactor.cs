@@ -21,12 +21,10 @@ public class Interactor : MonoBehaviour
 
         if (Physics.Raycast(r, out RaycastHit hitInfo, InteractRange, InteractableLayer))
         {
-            //hitInfo.collider.gameObject.GetComponent<Renderer>().material.color = Color.red;
-
             // Interact with objects using key E
             if (Input.GetKeyDown(KeyCode.E)) {
                 // Replace
-                if (CurrentObjectRigidBody)
+                if (CurrentObjectRigidBody != null)
                 {
                     // Reset physics of the object
                     CurrentObjectRigidBody.isKinematic = false;
@@ -53,19 +51,22 @@ public class Interactor : MonoBehaviour
 
                 return;
             }
-
-            
-
+        }
+        else
+        {
             // Drop (without replacing)
-            if (CurrentObjectRigidBody)
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                // Reset physics of the object
-                CurrentObjectRigidBody.isKinematic = false;
-                CurrentObjectCollider.enabled = true;
+                if (CurrentObjectRigidBody)
+                {
+                    // Reset physics of the object
+                    CurrentObjectRigidBody.isKinematic = false;
+                    CurrentObjectCollider.enabled = true;
 
-                // Set CurrentObject to null 
-                CurrentObjectRigidBody = null;
-                CurrentObjectCollider = null;
+                    // Set CurrentObject to null 
+                    CurrentObjectRigidBody = null;
+                    CurrentObjectCollider = null;
+                }
             }
         }
 
@@ -76,13 +77,14 @@ public class Interactor : MonoBehaviour
             {
                 CurrentObjectRigidBody.isKinematic = false;
                 CurrentObjectCollider.enabled = true;
-
+        
                 CurrentObjectRigidBody.AddForce(PlayerCamera.transform.forward * ThrowingForce, ForceMode.Impulse);
-
+        
                 CurrentObjectRigidBody = null;
                 CurrentObjectCollider = null;
             }
         }
+       
 
         // Pick pt2 (and move to hand)
         if (CurrentObjectRigidBody)
