@@ -17,10 +17,14 @@ public class Interactor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Interact with objects using key E
-        if (Input.GetKeyDown(KeyCode.E)) {
-            Ray r = new Ray(PlayerCamera.transform.position, PlayerCamera.transform.forward);
-            if (Physics.Raycast(r, out RaycastHit hitInfo, InteractRange, InteractableLayer)) {
+        Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(r, out RaycastHit hitInfo, InteractRange, InteractableLayer))
+        {
+            //hitInfo.collider.gameObject.GetComponent<Renderer>().material.color = Color.red;
+
+            // Interact with objects using key E
+            if (Input.GetKeyDown(KeyCode.E)) {
                 // Replace
                 if (CurrentObjectRigidBody)
                 {
