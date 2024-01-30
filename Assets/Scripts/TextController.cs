@@ -12,27 +12,36 @@ public class TextController : MonoBehaviour
     private SoundManager soundManager;
 
     public List<string> dialogues;
-
+    public List<string> dialogueBuffer;
     public string currentDialogue;
 
     // Start is called before the first frame update
     private void Start()
     {
         soundManager = soundManagerObj.GetComponent<SoundManager>();
-        dialogues.Add("Hola Criaturitas");
+
+        // Create predefined lines for the dialogues list
+
+        addDialogueToBuffer("hola hola");
+        addDialogueToBuffer("hola buenas");
+        addDialogueToBuffer("hola que tal");
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            textComponent.text = string.Empty;
-            playDialogue(0);
-        }
-        if (currentDialogue == string.Empty)
-        {
-            StopAllCoroutines();
-            textComponent.text = string.Empty;
+            if (textComponent.text == currentDialogue)
+            {
+                textComponent.text = string.Empty;
+                // start coroutine with next dialogue
+                playNextLine();
+            }
+            else
+            {
+                StopAllCoroutines();
+                textComponent.text = currentDialogue;
+            }
         }
     }
 
@@ -47,12 +56,28 @@ public class TextController : MonoBehaviour
     }
 
     /// <summary>
-    /// Index 0 Debug Dialogue
+    /// Used to add a custom line of dialogue to array of dialogues to play
+    /// </summary>
+    /// <param name="line"></param>
+    private void addDialogueToBuffer(string line)
+    {
+        dialogueBuffer.Add(line);
+    }
+
+    /// <summary>
+    /// Used to add a predefined line of dialogue to array of dialogues to play
     /// </summary>
     /// <param name="index"></param>
-    private void playDialogue(int index)
+    private void addDialogueToBuffer(int index)
     {
-        currentDialogue = dialogues[index];
+        dialogueBuffer.Add(dialogues[index]);
+    }
+
+    private void playNextLine()
+    {
+        dialogueBuffer.RemoveAt(0);
+
+        gameObject.SetActive(true);
         StartCoroutine("TypeLine");
     }
 }
