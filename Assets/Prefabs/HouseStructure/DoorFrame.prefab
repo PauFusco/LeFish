@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3122754207080101407
 Transform:
@@ -44,7 +44,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: a9628d20e6fc06a4490afb57bfb3cc09, type: 3}
       propertyPath: m_LocalScale.x
-      value: 60
+      value: 59.9
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a9628d20e6fc06a4490afb57bfb3cc09, type: 3}
       propertyPath: m_LocalScale.z
@@ -94,9 +94,17 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: a9628d20e6fc06a4490afb57bfb3cc09, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ffa660cf3eebd594c931f028b0251d5e, type: 2}
     - target: {fileID: 919132149155446097, guid: a9628d20e6fc06a4490afb57bfb3cc09, type: 3}
       propertyPath: m_Name
       value: doorway0 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a9628d20e6fc06a4490afb57bfb3cc09, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -118,7 +126,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: a9628d20e6fc06a4490afb57bfb3cc09, type: 3}
       propertyPath: m_LocalScale.x
-      value: 60
+      value: 59.9
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a9628d20e6fc06a4490afb57bfb3cc09, type: 3}
       propertyPath: m_LocalScale.z
@@ -168,9 +176,17 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: a9628d20e6fc06a4490afb57bfb3cc09, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ffa660cf3eebd594c931f028b0251d5e, type: 2}
     - target: {fileID: 919132149155446097, guid: a9628d20e6fc06a4490afb57bfb3cc09, type: 3}
       propertyPath: m_Name
       value: doorway0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a9628d20e6fc06a4490afb57bfb3cc09, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -191,16 +207,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 3122754207080101407}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 0309ba47abb80434986eb9a65bff040b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 201
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0309ba47abb80434986eb9a65bff040b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.501
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0309ba47abb80434986eb9a65bff040b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.0008
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0309ba47abb80434986eb9a65bff040b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.05
+      value: 0.024000026
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0309ba47abb80434986eb9a65bff040b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -230,9 +250,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 0309ba47abb80434986eb9a65bff040b, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: af549f6a969f10c4fb68afd9daf8aec1, type: 2}
     - target: {fileID: 919132149155446097, guid: 0309ba47abb80434986eb9a65bff040b, type: 3}
       propertyPath: m_Name
       value: door
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0309ba47abb80434986eb9a65bff040b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
