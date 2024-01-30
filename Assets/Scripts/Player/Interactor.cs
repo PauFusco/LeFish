@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class Interactor : MonoBehaviour
 {
-    [SerializeField] private LayerMask Layer;
+    [SerializeField] private LayerMask ItemLayer;
+    [SerializeField] private LayerMask ActionLayer;
     [SerializeField] private float ThrowingForce;
     [SerializeField] private float InteractRange;
     [SerializeField] private Transform PlayerHand;
@@ -18,10 +19,18 @@ public class Interactor : MonoBehaviour
     {
         Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(r, out RaycastHit hitInfo, InteractRange, Layer))
+        ItemInteract(r);
+        ActionInteract(r);
+    }
+
+
+    void ItemInteract(Ray r)
+    {
+        if (Physics.Raycast(r, out RaycastHit hitInfo, InteractRange, ItemLayer))
         {
             // Interact with objects using key E
-            if (Input.GetKeyDown(KeyCode.E)) {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
                 // Replace
                 if (CurrentObjectRigidBody != null)
                 {
@@ -69,22 +78,6 @@ public class Interactor : MonoBehaviour
             }
         }
 
-        // Throw
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            if (CurrentObjectRigidBody)
-            {
-                CurrentObjectRigidBody.isKinematic = false;
-                CurrentObjectCollider.enabled = true;
-        
-                CurrentObjectRigidBody.AddForce(Camera.main.transform.forward * ThrowingForce, ForceMode.Impulse);
-        
-                CurrentObjectRigidBody = null;
-                CurrentObjectCollider = null;
-            }
-        }
-       
-
         // Pick pt2 (and move to hand)
         if (CurrentObjectRigidBody)
         {
@@ -92,5 +85,50 @@ public class Interactor : MonoBehaviour
             CurrentObjectRigidBody.position = PlayerHand.position;
             CurrentObjectRigidBody.rotation = PlayerHand.rotation;
         }
+
+        // Throw
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if (CurrentObjectRigidBody)
+            {
+                CurrentObjectRigidBody.isKinematic = false;
+                CurrentObjectCollider.enabled = true;
+
+                CurrentObjectRigidBody.AddForce(Camera.main.transform.forward * ThrowingForce, ForceMode.Impulse);
+
+                CurrentObjectRigidBody = null;
+                CurrentObjectCollider = null;
+            }
+        }
+    }
+
+    void ActionInteract(Ray r)
+    {
+        if (Physics.Raycast(r, out RaycastHit hitInfo, InteractRange, ActionLayer))
+        {
+
+            if (hitInfo.collider.CompareTag("FishTank"))
+            {
+            
+            }
+            if (hitInfo.collider.CompareTag("Shower"))
+            {
+            
+            } 
+            if (hitInfo.collider.CompareTag("Food"))
+            {
+            
+            }
+            if (hitInfo.collider.CompareTag("Bed"))
+            {
+            
+            }
+            if (hitInfo.collider.CompareTag("Door"))
+            {
+            
+            }
+            
+        }
+
     }
 }

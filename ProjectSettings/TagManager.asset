@@ -4,19 +4,21 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Item
   - Teleport
   - FishTank
   - Shower
+  - Food
+  - Bed
+  - Door
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Interact
+  - 
   - Water
   - UI
-  - 
-  - 
+  - Item
+  - Action
   - 
   - 
   - 

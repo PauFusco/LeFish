@@ -1,21 +1,29 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class FishTank : MonoBehaviour
 {
     public ProgressBar progressBar;
+    public VisualEffect food;
 
     [SerializeField] private GameObject FishFood;
     [SerializeField] private GameObject Tank;
 
     [SerializeField] private Transform PlayerHand;
-    [SerializeField] private LayerMask Layer;
+    [SerializeField] private LayerMask ActionLayer;
     [SerializeField] private float InteractRange;
+
+    [SerializeField] private bool isDone;
 
     // Start is called before the first frame update
     void Start()
     {
         progressBar.progress = 0;
+        food.enabled = false;
+        progressBar.progressBar.enabled = false;
+        progressBar.progressBar.fillAmount = 0;
+        isDone = false;
     }
 
     // Update is called once per frame
@@ -23,26 +31,26 @@ public class FishTank : MonoBehaviour
     {
         Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(r, out RaycastHit hitInfo, InteractRange, Layer))
+        if (Physics.Raycast(r, out RaycastHit hitInfo, InteractRange, ActionLayer))
         {
-            // Interact with objects using key E
-            if (Input.GetKeyDown(KeyCode.E))
+            // Check if the hit object is the FishTank
+            if (hitInfo.collider.CompareTag("FishTank")) 
             {
-                // Check if the hit object is the FishTank
-                if (hitInfo.collider.CompareTag("FishTank"))
+                // Interact with objects using key E
+                if (Input.GetKey(KeyCode.E) && !isDone /*&& FishFood.transform.position == PlayerHand.position*/) //FishFood is dropped, need to check
                 {
-                    // Trigger the animation on the FishFood object
-                    if (FishFood != null && FishFood.transform.position == PlayerHand.position)
-                    {
-                        // Assuming you have an Animator component on the FishFood
-                        Animator fishFoodAnimator = FishFood.GetComponent<Animator>();
+                    progressBar.progressBar.enabled = true;
+                }
+            }
 
-                        if (fishFoodAnimator != null)
-                        {
-                            // Trigger the animation (assuming you have a trigger parameter named "Activate")
-                            fishFoodAnimator.SetTrigger("Activate");  
-                        }
-                    }
+            if (progressBar.enabled)
+            {
+                progressBar.FillProgressBar();
+
+                if (progressBar.progress == progressBar.maxProgress)
+                {
+                    progressBar.progressBar.enabled = false;
+                    isDone = true;
                 }
             }
         }

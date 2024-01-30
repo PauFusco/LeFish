@@ -3,35 +3,30 @@ using UnityEngine.UI;
 
 public class ProgressBar : MonoBehaviour
 {
-    [SerializeField] private Image progressBar;
+    public Image progressBar;
 
-    public float progress, maxProgress = 100;
+    public float progress = 0, maxProgress = 100;
     float lerpSpeed;
-    
-    // Start is called before the first frame update
-    private void Start()
+
+    public void FillProgressBar()
     {
-        progress = 0;
-    }
+        progressBar.fillAmount = progress;
 
-    private void FillProgressBar()
-    {
-        while (progress < maxProgress)
-        {
-            lerpSpeed = 3f * Time.deltaTime;
+        lerpSpeed = 3f * Time.deltaTime;
+        
+        // Fill
+        progressBar.fillAmount = Mathf.Lerp(progressBar.fillAmount, progress / maxProgress, lerpSpeed);
+        progress += 0.1f;
+        
+        // Color
+        Color healthColor = Color.Lerp(Color.red, Color.green, (progress / maxProgress));
+        progressBar.color = healthColor;
 
-            // Fill
-            progressBar.fillAmount = Mathf.Lerp(progressBar.fillAmount, progress / maxProgress, lerpSpeed);
-            progress += 0.1f;
-
-            // Color
-            Color healthColor = Color.Lerp(Color.red, Color.green, (progress / maxProgress));
-            progressBar.color = healthColor;
-        }
 
         if (progress > maxProgress)
         {
             progress = maxProgress;
         }
     }
+
 }
