@@ -40,7 +40,7 @@ public class FishTank : MonoBehaviour
                         if (fishFoodAnimator != null)
                         {
                             // Trigger the animation (assuming you have a trigger parameter named "Activate")
-                            fishFoodAnimator.SetTrigger("Activate");
+                            fishFoodAnimator.SetTrigger("Activate");  
                         }
                     }
                 }
