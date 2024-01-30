@@ -175,7 +175,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: cd3a4ed42c3ae8449a81526fb54d25c5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -273,10 +273,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e42919469fcfc704294fcedd3438c484, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractableLayer:
+  Layer:
     serializedVersion: 2
-    m_Bits: 8
-  PlayerCamera: {fileID: 7400159503101122117}
+    m_Bits: 0
   ThrowingForce: 5
   InteractRange: 10
   PlayerHand: {fileID: 1876759609830963384}
