@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float Speed;
     [SerializeField] private float Sensitivity;
 
-    private bool enable = true;
+    public bool canMove = true;
 
     // Start is called before the first frame update
     private void Start()
@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (enable) Move();
+        if (canMove) Move();
         Look();
     }
 

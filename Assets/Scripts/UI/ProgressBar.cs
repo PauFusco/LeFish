@@ -8,12 +8,26 @@ public class ProgressBar : MonoBehaviour
     public float progress = 0, maxProgress = 100;
     float lerpSpeed;
 
+    public void Start()
+    {
+        progress = 0;
+    }
+
+    public void Update()
+    {
+        lerpSpeed = 3f * Time.deltaTime;        
+        
+        FillProgressBar();
+
+        if (progress > maxProgress)
+        {
+            progress = maxProgress;
+            progressBar.enabled = false;
+        }
+    }
+
     public void FillProgressBar()
     {
-        progressBar.fillAmount = progress;
-
-        lerpSpeed = 3f * Time.deltaTime;
-        
         // Fill
         progressBar.fillAmount = Mathf.Lerp(progressBar.fillAmount, progress / maxProgress, lerpSpeed);
         progress += 0.1f;
@@ -21,12 +35,6 @@ public class ProgressBar : MonoBehaviour
         // Color
         Color healthColor = Color.Lerp(Color.red, Color.green, (progress / maxProgress));
         progressBar.color = healthColor;
-
-
-        if (progress > maxProgress)
-        {
-            progress = maxProgress;
-        }
     }
 
 }

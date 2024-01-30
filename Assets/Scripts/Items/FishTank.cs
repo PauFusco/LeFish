@@ -14,7 +14,7 @@ public class FishTank : MonoBehaviour
     [SerializeField] private LayerMask ActionLayer;
     [SerializeField] private float InteractRange;
 
-    [SerializeField] private bool isDone;
+    public bool isDone = false;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +23,6 @@ public class FishTank : MonoBehaviour
         food.enabled = false;
         progressBar.progressBar.enabled = false;
         progressBar.progressBar.fillAmount = 0;
-        isDone = false;
     }
 
     // Update is called once per frame
