@@ -14,13 +14,16 @@ public class SoundManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Index 0 task, 1 open door, 2 locked door, 3 text sound, 4 bed movement, 5 shower, 6 fish
-    /// food, 7 eat
     /// </summary>
     /// <param name="index">define sound index</param>
     /// <param name="volume">define sound volume</param>
     public void SelectAudio(int index, float volume)
     {
         controlAudio.PlayOneShot(audios[index], volume);
+    }
+
+    public void SelectAudio(AudioClip audio, float volume)
+    {
+        controlAudio.PlayOneShot(audio, volume);
     }
 }
