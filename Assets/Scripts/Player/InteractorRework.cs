@@ -31,12 +31,16 @@ public class InteractorRework : MonoBehaviour
     // Sound Manager
     private SoundManager soundManager;
 
+    // Text Controller
+    private TextController textController;
+
     //public ProgressBar progressBar;
 
     private void Start()
     {
-        playerMovement = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<PlayerMovement>();
+        playerMovement = GetComponent<PlayerMovement>();
         soundManager = GetComponent<SoundManager>();
+        textController = GetComponent<TextController>();
 
         todolist.Add(Tasks.FEED_FISH);
     }
@@ -76,7 +80,7 @@ public class InteractorRework : MonoBehaviour
             }
             if (hit.collider.CompareTag("Shower"))
             {
-                Debug.Log("Item hit is a fish tank");
+                Debug.Log("Item hit is a shower");
 
                 if (!showerDone)
                 {
@@ -87,9 +91,22 @@ public class InteractorRework : MonoBehaviour
                     StartCoroutine("ProgressBar", 1);
                 }
             }
+            if (hit.collider.CompareTag("Food"))
+            {
+                Debug.Log("Item hit is food");
+
+                if (!eatDone)
+                {
+                    progressBar.enabled = true;
+                    playerMovement.canMove = false;
+                    currentTask = Tasks.EAT;
+
+                    StartCoroutine("ProgressBar", 2);
+                }
+            }
             else
             {
-                Debug.Log("Item hit is not fish tank");
+                Debug.Log("Item hit is not interactible");
             }
         }
         else
@@ -126,6 +143,8 @@ public class InteractorRework : MonoBehaviour
 
                 if (index == 0) fishDone = true;
                 if (index == 1) showerDone = true;
+                if (index == 2) eatDone = true;
+
                 todolist.Remove(currentTask);
 
                 StopAllCoroutines();

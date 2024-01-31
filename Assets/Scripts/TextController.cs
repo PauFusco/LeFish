@@ -18,13 +18,7 @@ public class TextController : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        soundManager = soundManagerObj.GetComponent<SoundManager>();
-
-        // Create predefined lines for the dialogues list
-
-        addDialogueToBuffer("hola hola");
-        addDialogueToBuffer("hola buenas");
-        addDialogueToBuffer("hola que tal");
+        soundManager = GetComponent<SoundManager>()
     }
 
     private void Update()

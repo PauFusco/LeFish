@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 5547770275203735430}
   - component: {fileID: 4941792807722983499}
   - component: {fileID: 2342166640161811400}
+  - component: {fileID: 7743054395897292458}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -275,7 +276,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audios:
-  - {fileID: 8300000, guid: 2845aed5c9c8913468e40ea25cc45aa9, type: 3}
+  - {fileID: 8300000, guid: 705371faee23f0a41be5706373ce6ad3, type: 3}
+  - {fileID: 8300000, guid: 391e1940a42455c4d8fb27243245930e, type: 3}
+  - {fileID: 8300000, guid: 1f473c1758029fa4eb989b83c191ead0, type: 3}
 --- !u!82 &2342166640161811400
 AudioSource:
   m_ObjectHideFlags: 0
@@ -373,6 +376,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7743054395897292458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4875007119196036730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3839c0399b50f074694012a35e7bc6b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textComponent: {fileID: 0}
+  textSpeed: 0
+  soundManagerObj: {fileID: 0}
+  dialogues: []
+  dialogueBuffer: []
+  currentDialogue: 
 --- !u!1 &5957324346334334537
 GameObject:
   m_ObjectHideFlags: 0
