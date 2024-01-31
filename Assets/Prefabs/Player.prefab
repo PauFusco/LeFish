@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 5154629871840872682}
   - component: {fileID: 5547770275203735430}
   - component: {fileID: 4941792807722983499}
+  - component: {fileID: 7370226877315268161}
   - component: {fileID: 2342166640161811400}
   - component: {fileID: 7743054395897292458}
   m_Layer: 0
@@ -259,10 +260,13 @@ MonoBehaviour:
   currentProgress: 0
   maxProgress: 100
   lerpSpeed: 0
+  todolist: 
   ActionLayer:
     serializedVersion: 2
     m_Bits: 128
-  InteractRange: 1
+  InteractRange: 2
+  foodEffect: {fileID: 0}
+  waterEffect: {fileID: 0}
 --- !u!114 &4941792807722983499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,6 +283,21 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 705371faee23f0a41be5706373ce6ad3, type: 3}
   - {fileID: 8300000, guid: 391e1940a42455c4d8fb27243245930e, type: 3}
   - {fileID: 8300000, guid: 1f473c1758029fa4eb989b83c191ead0, type: 3}
+  - {fileID: 8300000, guid: ffaec88d006a03e41ae0ba7a0e047873, type: 3}
+  - {fileID: 8300000, guid: 1c9f5902cbb837b4e967c4a7f24a4ca5, type: 3}
+--- !u!114 &7370226877315268161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4875007119196036730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4707aa6b1eb626747ac42f5159545e72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textComponent: {fileID: 0}
 --- !u!82 &2342166640161811400
 AudioSource:
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.VFX;
+using UnityEngine.SceneManagement;
 
 public class InteractorRework : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class InteractorRework : MonoBehaviour
     private Tasks currentTask;
     public List<Tasks> todolist;
 
-    private bool fishDone = false, eatDone = false, showerDone = false;
+    private bool fishDone, eatDone, showerDone;
 
     // Interact
     [SerializeField] private LayerMask ActionLayer;
@@ -40,9 +41,8 @@ public class InteractorRework : MonoBehaviour
 
     // Visual Effects
     [SerializeField] private VisualEffect foodEffect;
-    [SerializeField] private VisualEffect waterEffect;
 
-    //public ProgressBar progressBar;
+    [SerializeField] private VisualEffect waterEffect;
 
     private void Start()
     {
@@ -53,9 +53,11 @@ public class InteractorRework : MonoBehaviour
         foodEffect.Stop();
         waterEffect.Stop();
 
-        todolist.Add(Tasks.FEED_FISH);
-        todolist.Add(Tasks.EAT);
-        todolist.Add(Tasks.SHOWER);
+        fishDone = false; showerDone = false; eatDone = false;
+
+        //todolist.Add(Tasks.FEED_FISH);
+        //todolist.Add(Tasks.EAT);
+        //todolist.Add(Tasks.SHOWER);
     }
 
     // Update is called once per frame
@@ -96,7 +98,7 @@ public class InteractorRework : MonoBehaviour
         {
             if (hit.collider.CompareTag("FishTank"))
             {
-                if (!fishDone)
+                if (!fishDone && todolist.Contains(Tasks.FEED_FISH))
                 {
                     progressBar.enabled = true;
                     foodEffect.Play();
@@ -108,7 +110,7 @@ public class InteractorRework : MonoBehaviour
             }
             if (hit.collider.CompareTag("Shower"))
             {
-                if (!showerDone)
+                if (!showerDone && todolist.Contains(Tasks.SHOWER))
                 {
                     progressBar.enabled = true;
                     waterEffect.Play();
@@ -120,13 +122,20 @@ public class InteractorRework : MonoBehaviour
             }
             if (hit.collider.CompareTag("Food"))
             {
-                if (!eatDone)
+                if (!eatDone && todolist.Contains(Tasks.EAT))
                 {
                     progressBar.enabled = true;
                     playerMovement.canMove = false;
                     currentTask = Tasks.EAT;
 
                     StartCoroutine("ProgressBar", 2);
+                }
+            }
+            if (hit.collider.CompareTag("Bed"))
+            {
+                if (todolist.Count <= 0)
+                {
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                 }
             }
         }

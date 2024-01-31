@@ -20,8 +20,6 @@ public class TaskController : MonoBehaviour
     {
         string textToPrint = "Tasks:\n";
 
-        Debug.Log(interactorRework.todolist);
-
         if (interactorRework.todolist.Count > 0)
         {
             if (interactorRework.todolist.Contains(InteractorRework.Tasks.FEED_FISH))

@@ -1048,24 +1048,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7db7f8c7499e84f4eadce31b95a01d18, type: 3}
   m_PrefabInstance: {fileID: 340256725}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &213645757 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4875007119196036730, guid: 0036d4da8bd749b4d83fe7acc7e09056, type: 3}
-  m_PrefabInstance: {fileID: 1133357948}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &213645768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 213645757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4707aa6b1eb626747ac42f5159545e72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textComponent: {fileID: 831992728}
 --- !u!1001 &239161757
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7265,18 +7247,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 4941792807722983499, guid: 0036d4da8bd749b4d83fe7acc7e09056, type: 3}
-      propertyPath: audios.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4941792807722983499, guid: 0036d4da8bd749b4d83fe7acc7e09056, type: 3}
-      propertyPath: 'audios.Array.data[3]'
-      value: 
-      objectReference: {fileID: 8300000, guid: ffaec88d006a03e41ae0ba7a0e047873, type: 3}
-    - target: {fileID: 4941792807722983499, guid: 0036d4da8bd749b4d83fe7acc7e09056, type: 3}
-      propertyPath: 'audios.Array.data[4]'
-      value: 
-      objectReference: {fileID: 8300000, guid: 1c9f5902cbb837b4e967c4a7f24a4ca5, type: 3}
     - target: {fileID: 5547770275203735430, guid: 0036d4da8bd749b4d83fe7acc7e09056, type: 3}
       propertyPath: foodEffect
       value: 
@@ -7290,9 +7260,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 820194754}
     - target: {fileID: 5547770275203735430, guid: 0036d4da8bd749b4d83fe7acc7e09056, type: 3}
-      propertyPath: InteractRange
+      propertyPath: todolist.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5547770275203735430, guid: 0036d4da8bd749b4d83fe7acc7e09056, type: 3}
+      propertyPath: 'todolist.Array.data[0]'
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5547770275203735430, guid: 0036d4da8bd749b4d83fe7acc7e09056, type: 3}
+      propertyPath: 'todolist.Array.data[1]'
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5547770275203735430, guid: 0036d4da8bd749b4d83fe7acc7e09056, type: 3}
+      propertyPath: 'todolist.Array.data[2]'
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7370226877315268161, guid: 0036d4da8bd749b4d83fe7acc7e09056, type: 3}
+      propertyPath: textComponent
+      value: 
+      objectReference: {fileID: 831992728}
     - target: {fileID: 7743054395897292458, guid: 0036d4da8bd749b4d83fe7acc7e09056, type: 3}
       propertyPath: textComponent
       value: 
@@ -7340,10 +7326,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4875007119196036730, guid: 0036d4da8bd749b4d83fe7acc7e09056, type: 3}
-      insertIndex: 8
-      addedObject: {fileID: 213645768}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0036d4da8bd749b4d83fe7acc7e09056, type: 3}
 --- !u!1001 &1145878885
 PrefabInstance:
@@ -20243,9 +20226,9 @@ GameObject:
   - component: {fileID: 1691872910414853438}
   - component: {fileID: 7284505161526612117}
   - component: {fileID: 8613707231801067678}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: bed
-  m_TagString: Untagged
+  m_TagString: Bed
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
