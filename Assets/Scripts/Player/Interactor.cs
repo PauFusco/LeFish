@@ -37,7 +37,7 @@ public class Interactor : MonoBehaviour
     void Update()
     {
         //Esto da error
-        Ray r = new Ray(transform.position, transform.forward);
+        Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         ItemInteract(r);
         ActionInteract(r);
