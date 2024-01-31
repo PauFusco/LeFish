@@ -74,8 +74,6 @@ public class InteractorRework : MonoBehaviour
         {
             if (hit.collider.CompareTag("FishTank"))
             {
-                Debug.Log("Item hit is a fish tank");
-
                 if (!fishDone)
                 {
                     progressBar.enabled = true;
@@ -87,8 +85,6 @@ public class InteractorRework : MonoBehaviour
             }
             if (hit.collider.CompareTag("Shower"))
             {
-                Debug.Log("Item hit is a shower");
-
                 if (!showerDone)
                 {
                     progressBar.enabled = true;
@@ -100,8 +96,6 @@ public class InteractorRework : MonoBehaviour
             }
             if (hit.collider.CompareTag("Food"))
             {
-                Debug.Log("Item hit is food");
-
                 if (!eatDone)
                 {
                     progressBar.enabled = true;
