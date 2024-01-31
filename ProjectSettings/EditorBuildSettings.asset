@@ -4,5 +4,9 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Reality_Arnau.unity
+    guid: 56374f6b7620dbe478acb12c2e17663d
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0

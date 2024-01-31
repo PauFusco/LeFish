@@ -74,6 +74,19 @@ public class InteractorRework : MonoBehaviour
                     StartCoroutine("ProgressBar", 0);
                 }
             }
+            if (hit.collider.CompareTag("Shower"))
+            {
+                Debug.Log("Item hit is a fish tank");
+
+                if (!showerDone)
+                {
+                    progressBar.enabled = true;
+                    playerMovement.canMove = false;
+                    currentTask = Tasks.SHOWER;
+
+                    StartCoroutine("ProgressBar", 1);
+                }
+            }
             else
             {
                 Debug.Log("Item hit is not fish tank");
@@ -111,7 +124,8 @@ public class InteractorRework : MonoBehaviour
                 currentProgress = 0.0f;
                 progressBar.fillAmount = 0;
 
-                fishDone = true;
+                if (index == 0) fishDone = true;
+                if (index == 1) showerDone = true;
                 todolist.Remove(currentTask);
 
                 StopAllCoroutines();
