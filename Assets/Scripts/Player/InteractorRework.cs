@@ -58,6 +58,13 @@ public class InteractorRework : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.E))
         {
+            StopAllCoroutines();
+            progressBar.enabled = false;
+
+            playerMovement.canMove = true;
+
+            currentProgress = 0.0f;
+            progressBar.fillAmount = 0;
         }
     }
 
@@ -141,9 +148,21 @@ public class InteractorRework : MonoBehaviour
                 currentProgress = 0.0f;
                 progressBar.fillAmount = 0;
 
-                if (index == 0) fishDone = true;
-                if (index == 1) showerDone = true;
-                if (index == 2) eatDone = true;
+                if (index == 0)
+                {
+                    fishDone = true;
+                    Debug.Log("Fish completed");
+                }
+                if (index == 1)
+                {
+                    showerDone = true;
+                    Debug.Log("Shower completed");
+                }
+                if (index == 2)
+                {
+                    eatDone = true;
+                    Debug.Log("Eat completed");
+                }
 
                 todolist.Remove(currentTask);
 

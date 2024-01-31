@@ -18,7 +18,7 @@ public class TextController : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        soundManager = GetComponent<SoundManager>()
+        soundManager = GetComponent<SoundManager>();
     }
 
     private void Update()
