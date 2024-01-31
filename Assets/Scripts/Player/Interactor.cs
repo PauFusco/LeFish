@@ -26,6 +26,7 @@ public class Interactor : MonoBehaviour
     // TASKS
     //Animator door;
     private bool doorOpen = false;
+    public ProgressBar progressBar = new ProgressBar();
 
     private void Start()
     {
@@ -129,12 +130,24 @@ public class Interactor : MonoBehaviour
             {
                 // Key REPEAT
                 playerMovement.canMove = false;
-                //if
+
+                // Activate VFX (food)
+                // Activate progressBar
+                // End progressBar
+                // Disactivate VFX (food)
+                // task is done, do not let the player do it again
+
             }
             if (hitInfo.collider.CompareTag("Shower"))
             {
                 // Key REPEAT
                 playerMovement.canMove = false;
+
+                // Activate VFX (water)
+                // Activate progressBar
+                // End progressBar
+                // Disactivate VFX (water)
+                // task is done, do not let the player do it again
 
             }
             if (hitInfo.collider.CompareTag("Food"))
@@ -142,11 +155,19 @@ public class Interactor : MonoBehaviour
                 // Key REPEAT
                 playerMovement.canMove = false;
 
+                // Activate progressBar
+                // End progressBar
+                // Make hitInfo disappear
+                // task is done, do not let the player do it again
             }
             if (hitInfo.collider.CompareTag("Bed"))
             {
                 // Key DOWN
                 playerMovement.canMove = false;
+
+                // If tasks are done
+                // Fundido en negro
+                // New scene
 
             }
             if (hitInfo.collider.CompareTag("Door"))
