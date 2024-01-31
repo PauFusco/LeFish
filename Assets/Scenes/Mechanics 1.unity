@@ -412,6 +412,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6363947760591299371, guid: 6488b16b0e955794a82529189d2b3603, type: 3}
   m_PrefabInstance: {fileID: 6379235078490876197}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &393096678 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4945286657364440327, guid: 6488b16b0e955794a82529189d2b3603, type: 3}
+  m_PrefabInstance: {fileID: 6379235078490876197}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &464200244
 GameObject:
   m_ObjectHideFlags: 0
@@ -705,7 +716,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 580766139}
-  - {fileID: 1703488865}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &515915256
@@ -762,7 +772,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51a297271ee43ab4ba674f22c3e79b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressBar: {fileID: 0}
+  progressBar: {fileID: 393096678}
+  currentProgress: 0
+  maxProgress: 100
   lerpSpeed: 0
   ActionLayer:
     serializedVersion: 2
@@ -1795,7 +1807,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 381921765}
-  m_Father: {fileID: 515915254}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2411,6 +2423,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1703488865}
     m_Modifications:
+    - target: {fileID: 2772142828544032663, guid: 6488b16b0e955794a82529189d2b3603, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4945286657364440327, guid: 6488b16b0e955794a82529189d2b3603, type: 3}
       propertyPath: m_FillAmount
       value: 0
@@ -2521,5 +2537,6 @@ SceneRoots:
   - {fileID: 1195094640}
   - {fileID: 473342281}
   - {fileID: 741026658}
+  - {fileID: 1703488865}
   - {fileID: 1856928283}
   - {fileID: 2144440704}

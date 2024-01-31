@@ -18,6 +18,8 @@ public class InteractorRework : MonoBehaviour
     private Tasks currentTask;
     private List<Tasks> todolist = new List<Tasks>();
 
+    private bool fishDone = false, eatDone = false, showerDone = false;
+
     // Interact
     [SerializeField] private LayerMask ActionLayer;
 
@@ -52,10 +54,6 @@ public class InteractorRework : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.E))
         {
-            StopAllCoroutines();
-            progressBar.enabled = false;
-            currentProgress = 0.0f;
-            progressBar.fillAmount = 0;
         }
     }
 
@@ -65,11 +63,16 @@ public class InteractorRework : MonoBehaviour
         {
             if (hit.collider.CompareTag("FishTank"))
             {
-                progressBar.enabled = true;
-                playerMovement.canMove = false;
-                currentTask = Tasks.FEED_FISH;
                 Debug.Log("Item hit is a fish tank");
-                StartCoroutine("ProgressBar");
+
+                if (!fishDone)
+                {
+                    progressBar.enabled = true;
+                    playerMovement.canMove = false;
+                    currentTask = Tasks.FEED_FISH;
+
+                    StartCoroutine("ProgressBar", 0);
+                }
             }
             else
             {
@@ -82,7 +85,12 @@ public class InteractorRework : MonoBehaviour
         }
     }
 
-    private IEnumerator ProgressBar()
+    /// <summary>
+    /// enter sound index to play
+    /// </summary>
+    /// <param name="index"></param>
+    /// <returns></returns>
+    private IEnumerator ProgressBar(int index)
     {
         while (currentProgress <= maxProgress)
         {
@@ -96,16 +104,22 @@ public class InteractorRework : MonoBehaviour
 
             if (currentProgress >= maxProgress)
             {
-                currentProgress = 100;
-
                 progressBar.enabled = false;
 
+                playerMovement.canMove = true;
+
+                currentProgress = 0.0f;
+                progressBar.fillAmount = 0;
+
+                fishDone = true;
                 todolist.Remove(currentTask);
 
-                playerMovement.canMove = true;
+                StopAllCoroutines();
             }
 
-            yield return null;
+            soundManager.SelectAudio(index, 0.5f);
+
+            yield return new WaitForSeconds(1f);
         }
     }
 }

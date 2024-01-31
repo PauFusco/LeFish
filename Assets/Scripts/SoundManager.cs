@@ -14,12 +14,15 @@ public class SoundManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Index 0 feed fish, 1 footsteps, 2 eat, 3 task completed, 4 open/close door, 5 door locked, 6
+    /// wake up, 7 dialogue, 8 shower
     /// </summary>
     /// <param name="index">define sound index</param>
     /// <param name="volume">define sound volume</param>
     public void SelectAudio(int index, float volume)
     {
-        controlAudio.PlayOneShot(audios[index], volume);
+        if (!controlAudio.isPlaying)
+            controlAudio.PlayOneShot(audios[index], volume);
     }
 
     public void SelectAudio(AudioClip audio, float volume)
