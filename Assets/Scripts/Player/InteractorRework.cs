@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.VFX;
 
 public class InteractorRework : MonoBehaviour
 {
@@ -36,6 +37,10 @@ public class InteractorRework : MonoBehaviour
 
     private DoorScript doorScript;
 
+    // Visual Effects
+    [SerializeField] private VisualEffect foodEffect;
+    [SerializeField] private VisualEffect waterEffect;
+
     //public ProgressBar progressBar;
 
     private void Start()
@@ -43,6 +48,9 @@ public class InteractorRework : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         soundManager = GetComponent<SoundManager>();
         textController = GetComponent<TextController>();
+
+        foodEffect.Stop();
+        waterEffect.Stop();
 
         todolist.Add(Tasks.FEED_FISH);
     }
@@ -62,6 +70,9 @@ public class InteractorRework : MonoBehaviour
         {
             StopAllCoroutines();
             progressBar.enabled = false;
+
+            foodEffect.Stop();
+            waterEffect.Stop();
 
             playerMovement.canMove = true;
 
@@ -85,6 +96,7 @@ public class InteractorRework : MonoBehaviour
                 if (!fishDone)
                 {
                     progressBar.enabled = true;
+                    foodEffect.Play();
                     playerMovement.canMove = false;
                     currentTask = Tasks.FEED_FISH;
 
@@ -96,6 +108,7 @@ public class InteractorRework : MonoBehaviour
                 if (!showerDone)
                 {
                     progressBar.enabled = true;
+                    waterEffect.Play();
                     playerMovement.canMove = false;
                     currentTask = Tasks.SHOWER;
 
@@ -173,11 +186,13 @@ public class InteractorRework : MonoBehaviour
                 {
                     fishDone = true;
                     Debug.Log("Fish completed");
+                    foodEffect.Stop();
                 }
                 if (index == 1)
                 {
                     showerDone = true;
                     Debug.Log("Shower completed");
+                    waterEffect.Stop();
                 }
                 if (index == 2)
                 {
