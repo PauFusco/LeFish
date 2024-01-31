@@ -608,7 +608,7 @@ GameObject:
   - component: {fileID: 515915257}
   - component: {fileID: 515915251}
   - component: {fileID: 515915256}
-  - component: {fileID: 515915255}
+  - component: {fileID: 515915258}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -705,30 +705,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 580766139}
+  - {fileID: 1703488865}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &515915255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 515915249}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e42919469fcfc704294fcedd3438c484, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ItemLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  ActionLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  ThrowingForce: 5
-  InteractRange: 10
-  PlayerHand: {fileID: 2040241067}
-  progressBar: {fileID: 0}
 --- !u!114 &515915256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -771,6 +750,24 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &515915258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515915249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51a297271ee43ab4ba674f22c3e79b32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  progressBar: {fileID: 0}
+  lerpSpeed: 0
+  ActionLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  InteractRange: 10
 --- !u!1 &580766136
 GameObject:
   m_ObjectHideFlags: 0
@@ -1798,7 +1795,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 381921765}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 515915254}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2524,6 +2521,5 @@ SceneRoots:
   - {fileID: 1195094640}
   - {fileID: 473342281}
   - {fileID: 741026658}
-  - {fileID: 1703488865}
   - {fileID: 1856928283}
   - {fileID: 2144440704}
