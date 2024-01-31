@@ -6,7 +6,7 @@ using TMPro;
 public class TextController : MonoBehaviour
 {
     public TextMeshProUGUI textComponent;
-    public float textSpeed;
+    [SerializeField] private float textSpeed;
 
     public GameObject soundManagerObj;
     private SoundManager soundManager;

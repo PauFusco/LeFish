@@ -13,11 +13,11 @@ public class InteractorRework : MonoBehaviour
     [SerializeField] private float lerpSpeed;
 
     // Task type definition
-    private enum Tasks
+    public enum Tasks
     { FEED_FISH, EAT, SHOWER };
 
     private Tasks currentTask;
-    private List<Tasks> todolist = new List<Tasks>();
+    public List<Tasks> todolist;
 
     private bool fishDone = false, eatDone = false, showerDone = false;
 
@@ -35,6 +35,7 @@ public class InteractorRework : MonoBehaviour
     // Text Controller
     private TextController textController;
 
+    // Door Controller
     private DoorScript doorScript;
 
     // Visual Effects
@@ -53,6 +54,8 @@ public class InteractorRework : MonoBehaviour
         waterEffect.Stop();
 
         todolist.Add(Tasks.FEED_FISH);
+        todolist.Add(Tasks.EAT);
+        todolist.Add(Tasks.SHOWER);
     }
 
     // Update is called once per frame
