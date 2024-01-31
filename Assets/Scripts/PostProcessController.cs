@@ -11,7 +11,8 @@ public class PostProcessController : MonoBehaviour
     [SerializeField]
     private ColorCurves colorCurves;
     [SerializeField]
-    private Keyframe value;
+    //private Keyframe value;
+    float value;
     //private VolumeParameter value;
     // Start is called before the first frame update
     void Start()
@@ -19,14 +20,19 @@ public class PostProcessController : MonoBehaviour
         
         volume = GetComponent<Volume>();
         volume.profile.TryGet<ColorCurves>(out colorCurves);
-        value = colorCurves.hueVsHue.value[0];
+        //value = colorCurves.hueVsHue.value[0];
         //colorCurves = volume.GetComponent<ColorCurves>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        value.inWeight += 0.01f;
-        //colorCurves.hueVsHue.value.MoveKey(0, value);
+        colorCurves.SetDirty();
+        value += 0.001f;
+        if (value >= 1.0f)
+        {
+            value = 0f;
+        }
+        colorCurves.hueVsHue.value.MoveKey(0, new Keyframe(0f, value));
     }
 }
