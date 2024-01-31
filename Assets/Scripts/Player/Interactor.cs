@@ -25,17 +25,19 @@ public class Interactor : MonoBehaviour
 
     // TASKS
     //Animator door;
+    private bool doorOpen = false;
 
     private void Start()
     {
-        playerMovement = GameObject.FindGameObjectsWithTag("Respawn")[0].GetComponent<PlayerMovement>();
+        playerMovement = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<PlayerMovement>();
         soundManager = GetComponent<SoundManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //Esto da error
+        Ray r = new Ray(transform.position, transform.forward);
 
         ItemInteract(r);
         ActionInteract(r);
@@ -127,7 +129,7 @@ public class Interactor : MonoBehaviour
             {
                 // Key REPEAT
                 playerMovement.canMove = false;
-                if
+                //if
             }
             if (hitInfo.collider.CompareTag("Shower"))
             {
@@ -152,10 +154,10 @@ public class Interactor : MonoBehaviour
                 // Key DOWN
 
                 //A GameObject variable is created for the door's main parent object
-                GameObject doorParent = hitInfo.collider.transform.root.gameObject;
+                GameObject doorParent = hitInfo.collider.gameObject;
 
                 //An Animator variable is created for the doorParent's Animator component
-                Animator doorAnim = doorParent.GetComponent<Animator>();
+                Animator doorAnim = doorParent.GetComponentInChildren<Animator>();
 
                 //An AudioSource variable is created for the door's Audio Source component
                 AudioSource doorSound = hitInfo.collider.gameObject.GetComponent<AudioSource>();
@@ -166,25 +168,17 @@ public class Interactor : MonoBehaviour
                 //If the E key is pressed
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    ////If the door's Animator's state is set to the open animation
-                    //if (doorAnim.GetCurrentAnimatorStateInfo(0).IsName(doorOpenAnimName))
-                    //{
-                    //    //The door's open animation trigger is reset
-                    //    doorAnim.ResetTrigger("open");
-                    //
-                    //    //The door's close animation trigger is set (it plays)
-                    //    doorAnim.SetTrigger("close");
-                    //}
-                    ////If the door's Animator's state is set to the close animation
-                    //if (doorAnim.GetCurrentAnimatorStateInfo(0).IsName(doorCloseAnimName))
-                    //{
-                    //    //The door's close animation trigger is reset
-                    //    doorAnim.ResetTrigger("close");
-                    //
-                    //    //The door's open animation trigger is set (it plays)
-                    //    doorAnim.SetTrigger("open");
-                    //}
-
+                    Debug.Log("Objetc name: " + doorParent.name.ToString());
+                    if (!doorOpen)
+                    {
+                        doorAnim.Play("DoorOpen", 0, 0.0f);
+                        doorOpen = true;
+                    }
+                    else 
+                    {
+                        doorAnim.Play("DoorClose", 0, 0.0f);
+                        doorOpen = false;
+                    }
                 }
             }
         }
