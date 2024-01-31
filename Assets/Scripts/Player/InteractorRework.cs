@@ -34,6 +34,8 @@ public class InteractorRework : MonoBehaviour
     // Text Controller
     private TextController textController;
 
+    private DoorScript doorScript;
+
     //public ProgressBar progressBar;
 
     private void Start()
@@ -65,6 +67,12 @@ public class InteractorRework : MonoBehaviour
 
             currentProgress = 0.0f;
             progressBar.fillAmount = 0;
+
+            soundManager.stopAudio();
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            checkRayDown(rayCast);
         }
     }
 
@@ -105,14 +113,33 @@ public class InteractorRework : MonoBehaviour
                     StartCoroutine("ProgressBar", 2);
                 }
             }
-            else
-            {
-                Debug.Log("Item hit is not interactible");
-            }
         }
         else
         {
             Debug.Log("No item hit");
+        }
+    }
+
+    private void checkRayDown(Ray rayCast)
+    {
+        if (Physics.Raycast(rayCast, out RaycastHit hit, InteractRange, ActionLayer))
+        {
+            if (hit.collider.CompareTag("Door"))
+            {
+                doorScript = hit.transform.gameObject.GetComponent<DoorScript>();
+
+                doorScript.doorInteract();
+                //if (!doorOpen)
+                //{
+                //    doorAnim.Play("DoorOpen", 0, 0.0f);
+                //    doorOpen = true;
+                //}
+                //else
+                //{
+                //    doorAnim.Play("DoorClose", 0, 0.0f);
+                //    doorOpen = false;
+                //}
+            }
         }
     }
 
@@ -125,7 +152,7 @@ public class InteractorRework : MonoBehaviour
     {
         while (currentProgress <= maxProgress)
         {
-            lerpSpeed = 3f * Time.deltaTime;
+            lerpSpeed = 1;
 
             progressBar.fillAmount = Mathf.Lerp(progressBar.fillAmount, currentProgress / maxProgress, lerpSpeed);
             currentProgress += 0.1f;
@@ -157,6 +184,10 @@ public class InteractorRework : MonoBehaviour
                     eatDone = true;
                     Debug.Log("Eat completed");
                 }
+
+                soundManager.stopAudio();
+
+                soundManager.SelectAudio(4, 0.5f);
 
                 todolist.Remove(currentTask);
 
