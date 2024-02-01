@@ -5,6 +5,11 @@ using UnityEngine.UI;
 using UnityEngine.VFX;
 using UnityEngine.SceneManagement;
 using TMPro;
+using static UnityEngine.Timeline.TimelineAsset;
+using Unity.VisualScripting;
+
+using NUnit;
+
 
 public class InteractorRework : MonoBehaviour
 {
@@ -58,6 +63,10 @@ public class InteractorRework : MonoBehaviour
     [SerializeField] private Transform PlayerHand;
     [SerializeField] private float ThrowingForce;
 
+    [SerializeField] private Image background;
+    [SerializeField] private float durationFade = 0.5f;
+    private Color startColor = new Color(0f, 0f, 0f, 0f);
+    private Color endColor = new Color(0f, 0f, 0f, 1f);
 
     private void Start()
     {
@@ -164,11 +173,15 @@ public class InteractorRework : MonoBehaviour
                     {
                         if(SceneManager.GetActiveScene().buildIndex == 4)
                         {
+                            StartCoroutine(FadeOut());
                             SceneManager.LoadScene(0);
+                            StartCoroutine(FadeIn());
                         }
                         else
                         {
-                        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                            StartCoroutine(FadeOut());
+                            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                            StartCoroutine(FadeIn());
                         }
                     }
                 }
@@ -331,4 +344,37 @@ public class InteractorRework : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
     }
+
+    IEnumerator FadeIn()
+    {
+        float elapsedTime = 0f;
+
+        elapsedTime = 0f;
+        background.gameObject.SetActive(true);
+
+        while (elapsedTime < durationFade)
+        {
+            background.color = Color.Lerp(endColor, startColor, elapsedTime / durationFade);
+            elapsedTime += Time.deltaTime;
+            yield return null; // Wait for the next frame
+        }
+
+    }
+
+    IEnumerator FadeOut()
+    {
+        float elapsedTime = 0f;
+
+        elapsedTime = 0f;
+        background.gameObject.SetActive(true);
+
+        while (elapsedTime < durationFade)
+        {
+            background.color = Color.Lerp(startColor, endColor, elapsedTime / durationFade);
+            elapsedTime += Time.deltaTime;
+            yield return null; // Wait for the next frame
+        }
+
+    }
 }
+
