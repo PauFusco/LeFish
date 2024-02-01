@@ -14994,6 +14994,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3154439497513009271, guid: 0036d4da8bd749b4d83fe7acc7e09056, type: 3}
+      propertyPath: textComponent
+      value: 
+      objectReference: {fileID: 1130440255}
+    - target: {fileID: 3154439497513009271, guid: 0036d4da8bd749b4d83fe7acc7e09056, type: 3}
+      propertyPath: 'texts.Array.data[2]'
+      value: Oh, I thought I ordered pizza yesterday, silly me
+      objectReference: {fileID: 0}
     - target: {fileID: 4875007119196036730, guid: 0036d4da8bd749b4d83fe7acc7e09056, type: 3}
       propertyPath: m_Name
       value: Player
@@ -15015,21 +15023,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 881377608}
     - target: {fileID: 5547770275203735430, guid: 0036d4da8bd749b4d83fe7acc7e09056, type: 3}
-      propertyPath: todolist.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5547770275203735430, guid: 0036d4da8bd749b4d83fe7acc7e09056, type: 3}
       propertyPath: showShortInteractText
       value: 
       objectReference: {fileID: 1305264478}
-    - target: {fileID: 5547770275203735430, guid: 0036d4da8bd749b4d83fe7acc7e09056, type: 3}
-      propertyPath: 'todolist.Array.data[0]'
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5547770275203735430, guid: 0036d4da8bd749b4d83fe7acc7e09056, type: 3}
-      propertyPath: 'todolist.Array.data[1]'
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7370226877315268161, guid: 0036d4da8bd749b4d83fe7acc7e09056, type: 3}
       propertyPath: textComponent
       value: 
@@ -15077,10 +15073,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4875007119196036730, guid: 0036d4da8bd749b4d83fe7acc7e09056, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1972181545}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0036d4da8bd749b4d83fe7acc7e09056, type: 3}
 --- !u!1 &1869669456 stripped
 GameObject:
@@ -16412,33 +16405,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0edcfb3af01acca4399f2987b36b0969, type: 3}
   m_PrefabInstance: {fileID: 1970334835}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1972181521 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4875007119196036730, guid: 0036d4da8bd749b4d83fe7acc7e09056, type: 3}
-  m_PrefabInstance: {fileID: 1869194715}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1972181545
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1972181521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 054868d0ea7adb843bba353617ffd298, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  texts:
-  - 'What a nice sleep, I should get up... '
-  - I can't go to bed yet, I need to do my chores
-  - That was tasty!
-  - Clean and fresh!
-  - Here you have Morpheus!
-  - Goodnight!
-  textComponent: {fileID: 1130440255}
-  textSpeed: 0
-  isTextDisplaying: 0
 --- !u!1 &1979112604 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ed08d1ab86617774ab802e5a50a05d8a, type: 3}
