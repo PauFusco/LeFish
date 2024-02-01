@@ -30,7 +30,9 @@ public class InteractorRework : MonoBehaviour
 
     // Interact
     [SerializeField] private LayerMask ActionLayer;
+    [SerializeField] private LayerMask ItemLayer;
 
+    // Range
     [SerializeField] private float InteractRange;
 
     // Player Movement
@@ -49,6 +51,13 @@ public class InteractorRework : MonoBehaviour
     [SerializeField] private VisualEffect foodEffect;
 
     [SerializeField] private VisualEffect waterEffect;
+
+    // Item holding
+    private Rigidbody CurrentObjectRigidBody;
+    private Collider CurrentObjectCollider;
+    [SerializeField] private Transform PlayerHand;
+    [SerializeField] private float ThrowingForce;
+
 
     private void Start()
     {
@@ -170,6 +179,80 @@ public class InteractorRework : MonoBehaviour
 
                     doorScript.doorInteract();
                 }
+            }
+        }
+        if (Physics.Raycast(rayCast, out RaycastHit hitInfo, InteractRange, ItemLayer))
+        {
+            // Interact with objects using key E
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                // Replace
+                if (CurrentObjectRigidBody != null)
+                {
+                    // Reset physics of the object
+                    CurrentObjectRigidBody.isKinematic = false;
+                    CurrentObjectCollider.enabled = true;
+
+                    // Replace it with new object
+                    CurrentObjectRigidBody = hitInfo.rigidbody;
+                    CurrentObjectCollider = hitInfo.collider;
+
+                    // Disable physics for the object we are holding
+                    CurrentObjectRigidBody.isKinematic = true;
+                    CurrentObjectCollider.enabled = false;
+                }
+                // Pick pt1
+                else
+                {
+                    // Disable physics for the object we are holding
+                    CurrentObjectRigidBody = hitInfo.rigidbody;
+                    CurrentObjectCollider = hitInfo.collider;
+
+                    CurrentObjectRigidBody.isKinematic = true;
+                    CurrentObjectCollider.enabled = false;
+                }
+
+                return;
+            }
+        }
+        else
+        {
+            // Drop (without replacing)
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                if (CurrentObjectRigidBody)
+                {
+                    // Reset physics of the object
+                    CurrentObjectRigidBody.isKinematic = false;
+                    CurrentObjectCollider.enabled = true;
+
+                    // Set CurrentObject to null 
+                    CurrentObjectRigidBody = null;
+                    CurrentObjectCollider = null;
+                }
+            }
+        }
+
+        // Pick pt2 (and move to hand)
+        if (CurrentObjectRigidBody)
+        {
+            // Move object to hand (hand is invisible, it looks like is near camera)
+            CurrentObjectRigidBody.position = PlayerHand.position;
+            CurrentObjectRigidBody.rotation = PlayerHand.rotation;
+        }
+
+        // Throw
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if (CurrentObjectRigidBody)
+            {
+                CurrentObjectRigidBody.isKinematic = false;
+                CurrentObjectCollider.enabled = true;
+
+                CurrentObjectRigidBody.AddForce(Camera.main.transform.forward * ThrowingForce, ForceMode.Impulse);
+
+                CurrentObjectRigidBody = null;
+                CurrentObjectCollider = null;
             }
         }
         else

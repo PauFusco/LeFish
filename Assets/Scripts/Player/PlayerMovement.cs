@@ -33,14 +33,14 @@ public class PlayerMovement : MonoBehaviour
             PlayerMoveInput = new Vector3(ctx.ReadValue<Vector2>().x, PlayerMoveInput.y, ctx.ReadValue<Vector2>().y);
         };
 
-        Controls.Keyboard.UpDown.performed += ctx =>
-        {
-            PlayerMoveInput = new Vector3(PlayerMoveInput.x, ctx.ReadValue<float>(), PlayerMoveInput.z);
-        };
-        Controls.Keyboard.UpDown.canceled += ctx =>
-        {
-            PlayerMoveInput = new Vector3(PlayerMoveInput.x, ctx.ReadValue<float>(), PlayerMoveInput.z);
-        };
+        //Controls.Keyboard.UpDown.performed += ctx =>
+        //{
+        //    PlayerMoveInput = new Vector3(PlayerMoveInput.x, ctx.ReadValue<float>(), PlayerMoveInput.z);
+        //};
+        //Controls.Keyboard.UpDown.canceled += ctx =>
+        //{
+        //    PlayerMoveInput = new Vector3(PlayerMoveInput.x, ctx.ReadValue<float>(), PlayerMoveInput.z);
+        //};
 
         Controls.Keyboard.MouseDelta.performed += ctx =>
         {

@@ -28,15 +28,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             ""id"": ""456ce859-30f2-45bd-b2e4-683557bd3fdc"",
             ""actions"": [
                 {
-                    ""name"": ""UpDown"",
-                    ""type"": ""Value"",
-                    ""id"": ""eab58bf2-efad-48f0-b2ad-6c52f26f242b"",
-                    ""expectedControlType"": ""Axis"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
                     ""name"": ""MoveKeys"",
                     ""type"": ""Value"",
                     ""id"": ""c03ca817-dd22-4b31-9b96-98562d0ea0dc"",
@@ -56,39 +47,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": ""UpDownVec"",
-                    ""id"": ""a2a42068-8554-4fea-a6cf-364924e566e6"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""UpDown"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""817f1b3d-a402-452d-a27d-62523850a639"",
-                    ""path"": ""<Keyboard>/leftShift"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""UpDown"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""e2d41707-9008-4058-8c03-d59bf088b1fc"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""UpDown"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
                 {
                     ""name"": ""MoveVector"",
                     ""id"": ""51f061b7-8fe1-4122-b026-8a312dfe175b"",
@@ -162,7 +120,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
 }");
         // Keyboard
         m_Keyboard = asset.FindActionMap("Keyboard", throwIfNotFound: true);
-        m_Keyboard_UpDown = m_Keyboard.FindAction("UpDown", throwIfNotFound: true);
         m_Keyboard_MoveKeys = m_Keyboard.FindAction("MoveKeys", throwIfNotFound: true);
         m_Keyboard_MouseDelta = m_Keyboard.FindAction("MouseDelta", throwIfNotFound: true);
     }
@@ -226,14 +183,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     // Keyboard
     private readonly InputActionMap m_Keyboard;
     private List<IKeyboardActions> m_KeyboardActionsCallbackInterfaces = new List<IKeyboardActions>();
-    private readonly InputAction m_Keyboard_UpDown;
     private readonly InputAction m_Keyboard_MoveKeys;
     private readonly InputAction m_Keyboard_MouseDelta;
     public struct KeyboardActions
     {
         private @PlayerControls m_Wrapper;
         public KeyboardActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @UpDown => m_Wrapper.m_Keyboard_UpDown;
         public InputAction @MoveKeys => m_Wrapper.m_Keyboard_MoveKeys;
         public InputAction @MouseDelta => m_Wrapper.m_Keyboard_MouseDelta;
         public InputActionMap Get() { return m_Wrapper.m_Keyboard; }
@@ -245,9 +200,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_KeyboardActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_KeyboardActionsCallbackInterfaces.Add(instance);
-            @UpDown.started += instance.OnUpDown;
-            @UpDown.performed += instance.OnUpDown;
-            @UpDown.canceled += instance.OnUpDown;
             @MoveKeys.started += instance.OnMoveKeys;
             @MoveKeys.performed += instance.OnMoveKeys;
             @MoveKeys.canceled += instance.OnMoveKeys;
@@ -258,9 +210,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
 
         private void UnregisterCallbacks(IKeyboardActions instance)
         {
-            @UpDown.started -= instance.OnUpDown;
-            @UpDown.performed -= instance.OnUpDown;
-            @UpDown.canceled -= instance.OnUpDown;
             @MoveKeys.started -= instance.OnMoveKeys;
             @MoveKeys.performed -= instance.OnMoveKeys;
             @MoveKeys.canceled -= instance.OnMoveKeys;
@@ -286,7 +235,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     public KeyboardActions @Keyboard => new KeyboardActions(this);
     public interface IKeyboardActions
     {
-        void OnUpDown(InputAction.CallbackContext context);
         void OnMoveKeys(InputAction.CallbackContext context);
         void OnMouseDelta(InputAction.CallbackContext context);
     }
