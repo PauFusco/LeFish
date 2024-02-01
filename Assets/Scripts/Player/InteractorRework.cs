@@ -85,6 +85,8 @@ public class InteractorRework : MonoBehaviour
         //todolist.Add(Tasks.SHOWER);
 
         soundManager.SelectAudio(5, 0.5f);
+
+        background.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -349,7 +351,6 @@ public class InteractorRework : MonoBehaviour
     {
         float elapsedTime = 0f;
 
-        elapsedTime = 0f;
         background.gameObject.SetActive(true);
 
         while (elapsedTime < durationFade)
@@ -365,7 +366,6 @@ public class InteractorRework : MonoBehaviour
     {
         float elapsedTime = 0f;
 
-        elapsedTime = 0f;
         background.gameObject.SetActive(true);
 
         while (elapsedTime < durationFade)
