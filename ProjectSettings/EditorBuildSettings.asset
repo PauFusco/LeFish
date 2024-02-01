@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/StartTitle.unity
+    guid: 69dcf119dcda07646bbc5b35b5785f92
+  - enabled: 1
     path: Assets/Scenes/Reality_Arnau.unity
     guid: 56374f6b7620dbe478acb12c2e17663d
   - enabled: 1
