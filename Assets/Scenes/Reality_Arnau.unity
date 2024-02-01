@@ -14636,6 +14636,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1883955088}
+  - component: {fileID: 1883955089}
   m_Layer: 0
   m_Name: Manijas
   m_TagString: Untagged
@@ -14663,6 +14664,18 @@ Transform:
   - {fileID: 1114948370}
   m_Father: {fileID: 32743109}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1883955089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883955087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d75cfe6ec6faf304887abdfb91692ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1900467550
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17601,13 +17614,26 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 543450652093679661}
-  m_Layer: 7
+  - component: {fileID: 919132147549196952}
+  m_Layer: 0
   m_Name: Fishbowl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
+--- !u!114 &919132147549196952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132147549196951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d75cfe6ec6faf304887abdfb91692ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &919132148455762003
 GameObject:
   m_ObjectHideFlags: 0
@@ -22276,6 +22302,7 @@ GameObject:
   - component: {fileID: 8130187893144826881}
   - component: {fileID: 1205544506772274048}
   - component: {fileID: 8130187893144826882}
+  - component: {fileID: 8130187893144826883}
   m_Layer: 7
   m_Name: Watering_can_01
   m_TagString: Shower
@@ -23482,6 +23509,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0033525827, y: 0.003352583, z: 0.0065046432}
   m_Center: {x: -0.0000000095460555, y: 0.0000000094778025, z: 0.0022901895}
+--- !u!114 &8130187893144826883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7013219710003679478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d75cfe6ec6faf304887abdfb91692ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &8138405312965810607
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -24061,6 +24100,7 @@ GameObject:
   - component: {fileID: 2946173223835310252}
   - component: {fileID: 8138405312965810607}
   - component: {fileID: 8657324714284943539}
+  - component: {fileID: 8657324714284943540}
   m_Layer: 0
   m_Name: Box_Pizza
   m_TagString: Untagged
@@ -24089,6 +24129,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.009723389, y: 0.009723456, z: 0.0073443414}
   m_Center: {x: -0.0004556976, y: 0.00000075294724, z: 0.0017696973}
+--- !u!114 &8657324714284943540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8657324714284943538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d75cfe6ec6faf304887abdfb91692ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8701584487151170762
 Transform:
   m_ObjectHideFlags: 0

@@ -162,7 +162,7 @@ public class InteractorRework : MonoBehaviour
                 {
                     if (Input.GetKeyDown(KeyCode.E))
                     {
-                        if(SceneManager.GetActiveScene().buildIndex == 2)
+                        if(SceneManager.GetActiveScene().buildIndex == 4)
                         {
                             SceneManager.LoadScene(0);
                         }
