@@ -4,11 +4,17 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.VFX;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class InteractorRework : MonoBehaviour
 {
     // Progress Bar variables
     public Image progressBar;
+
+    DialogueManager dialogueManager;
+
+    public TextMeshProUGUI showInteractText;
+    public TextMeshProUGUI showShortInteractText;
 
     [SerializeField] private float currentProgress = 0.0f, maxProgress = 100.0f;
     [SerializeField] private float lerpSpeed;
@@ -49,6 +55,7 @@ public class InteractorRework : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         soundManager = GetComponent<SoundManager>();
         textController = GetComponent<TextController>();
+        dialogueManager = GetComponent<DialogueManager>();
 
         foodEffect.Stop();
         waterEffect.Stop();
@@ -68,11 +75,8 @@ public class InteractorRework : MonoBehaviour
         //Esto da error
         Ray rayCast = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if (Input.GetKey(KeyCode.E))
-        {
-            // check type of object hit
-            checkRay(rayCast);
-        }
+        CheckRay(rayCast);
+
         if (Input.GetKeyUp(KeyCode.E))
         {
             StopAllCoroutines();
@@ -88,13 +92,10 @@ public class InteractorRework : MonoBehaviour
 
             soundManager.stopAudio();
         }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            checkRayDown(rayCast);
-        }
+        
     }
 
-    private void checkRay(Ray rayCast)
+    private void CheckRay(Ray rayCast)
     {
         if (Physics.Raycast(rayCast, out RaycastHit hit, InteractRange, ActionLayer))
         {
@@ -102,71 +103,76 @@ public class InteractorRework : MonoBehaviour
             {
                 if (!fishDone && todolist.Contains(Tasks.FEED_FISH))
                 {
-                    progressBar.enabled = true;
-                    foodEffect.Play();
-                    playerMovement.canMove = false;
-                    currentTask = Tasks.FEED_FISH;
+                    showInteractText.enabled = true;
+                    if (Input.GetKey(KeyCode.E))
+                    {
+                        progressBar.enabled = true;
+                        foodEffect.Play();
+                        playerMovement.canMove = false;
+                        currentTask = Tasks.FEED_FISH;
+                        StartCoroutine("ProgressBar", 0);
 
-                    StartCoroutine("ProgressBar", 0);
+                    }
                 }
             }
             if (hit.collider.CompareTag("Shower"))
             {
                 if (!showerDone && todolist.Contains(Tasks.SHOWER))
                 {
-                    progressBar.enabled = true;
-                    waterEffect.Play();
-                    playerMovement.canMove = false;
-                    currentTask = Tasks.SHOWER;
+                    showInteractText.enabled = true;
+                    if (Input.GetKey(KeyCode.E))
+                    {
+                        progressBar.enabled = true;
+                        waterEffect.Play();
+                        playerMovement.canMove = false;
+                        currentTask = Tasks.SHOWER;
 
-                    StartCoroutine("ProgressBar", 1);
+                        StartCoroutine("ProgressBar", 1);
+                    }
                 }
             }
             if (hit.collider.CompareTag("Food"))
             {
                 if (!eatDone && todolist.Contains(Tasks.EAT))
                 {
-                    progressBar.enabled = true;
-                    playerMovement.canMove = false;
-                    currentTask = Tasks.EAT;
+                    showInteractText.enabled = true;
+                    if (Input.GetKey(KeyCode.E))
+                    {
+                        progressBar.enabled = true;
+                        playerMovement.canMove = false;
+                        currentTask = Tasks.EAT;
 
-                    StartCoroutine("ProgressBar", 2);
+                        StartCoroutine("ProgressBar", 2);
+                    }
                 }
             }
             if (hit.collider.CompareTag("Bed"))
             {
                 if (todolist.Count <= 0)
                 {
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                    showShortInteractText.enabled = true;
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                    }
+                }
+            }
+            if (hit.collider.CompareTag("Door"))
+            {
+                showShortInteractText.enabled = true;
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    doorScript = hit.transform.gameObject.GetComponent<DoorScript>();
+
+                    doorScript.doorInteract();
                 }
             }
         }
         else
         {
+            showInteractText.enabled = false;
+            showShortInteractText.enabled = false;
             Debug.Log("No item hit");
-        }
-    }
-
-    private void checkRayDown(Ray rayCast)
-    {
-        if (Physics.Raycast(rayCast, out RaycastHit hit, InteractRange, ActionLayer))
-        {
-            if (hit.collider.CompareTag("Door"))
-            {
-                doorScript = hit.transform.gameObject.GetComponent<DoorScript>();
-
-                doorScript.doorInteract();
-                //if (!doorOpen)
-                //{
-                //    doorAnim.Play("DoorOpen", 0, 0.0f);
-                //    doorOpen = true;
-                //}
-                //else
-                //{
-                //    doorAnim.Play("DoorClose", 0, 0.0f);
-                //    doorOpen = false;
-                //}
-            }
         }
     }
 
@@ -201,6 +207,7 @@ public class InteractorRework : MonoBehaviour
                     fishDone = true;
                     Debug.Log("Fish completed");
                     foodEffect.Stop();
+                    dialogueManager.fish += 1;
                 }
                 if (index == 1)
                 {

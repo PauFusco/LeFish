@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
         // initialize the controls we have created in the folders Controls
         Controls = new PlayerControls();
         Controls.Enable();
-
+        Cursor.lockState = CursorLockMode.Locked;
         // MoveKeys = AWSD
         Controls.Keyboard.MoveKeys.performed += ctx =>
         {

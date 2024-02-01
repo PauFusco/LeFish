@@ -17,6 +17,8 @@ public class AnalogClock : MonoBehaviour
     private int _previousSeconds;
     private int _timeInSeconds;
 
+    public float jumpValue = 1f;
+
     // Update is called once per frame
     void Update()
     {
@@ -46,9 +48,9 @@ public class AnalogClock : MonoBehaviour
 
         if (_timeInSeconds != _previousSeconds)
         {
-            _secondHand.localRotation = Quaternion.Euler(0, 0, _timeInSeconds * secondHandPerSecond);
-            _minuteHand.localRotation = Quaternion.Euler(0, 0, _timeInSeconds * minuteHandPerSecond);
-            _hourHand.localRotation = Quaternion.Euler(0, 0, _timeInSeconds * hourHandPerSecond);
+            _secondHand.localRotation = Quaternion.Euler(0, 0, _timeInSeconds * secondHandPerSecond * jumpValue);
+            _minuteHand.localRotation = Quaternion.Euler(0, 0, _timeInSeconds * minuteHandPerSecond * jumpValue);
+            _hourHand.localRotation = Quaternion.Euler(0, 0, _timeInSeconds * hourHandPerSecond * jumpValue);
         }
         _previousSeconds = _timeInSeconds;
     }

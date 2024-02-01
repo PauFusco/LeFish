@@ -23,6 +23,7 @@ public class PostProcessController : MonoBehaviour
         
         volume = GetComponent<Volume>();
         volume.profile.TryGet<ColorCurves>(out colorCurves);
+        value = initValue;
         //value = colorCurves.hueVsHue.value[0];
         //colorCurves = volume.GetComponent<ColorCurves>();
     }
