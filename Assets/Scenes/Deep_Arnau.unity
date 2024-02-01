@@ -6655,6 +6655,14 @@ PrefabInstance:
       value: Fish
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 919183b44acad8e4cb150ced2f617567, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 919183b44acad8e4cb150ced2f617567, type: 3}
+      propertyPath: m_TagString
+      value: Food
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 919183b44acad8e4cb150ced2f617567, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -47898,7 +47906,7 @@ GameObject:
   - component: {fileID: 7080932925995120092}
   - component: {fileID: 7080932925995120093}
   - component: {fileID: 7080932925995120094}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bottle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
