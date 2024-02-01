@@ -148,13 +148,17 @@ public class InteractorRework : MonoBehaviour
             }
             if (hit.collider.CompareTag("Bed"))
             {
+                showShortInteractText.enabled = true;
                 if (todolist.Count <= 0)
                 {
-                    showShortInteractText.enabled = true;
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                     }
+                }
+                else if (Input.GetKeyDown(KeyCode.E) && !dialogueManager.isTextDisplaying)
+                {
+                    dialogueManager.StartDialogue(1);
                 }
             }
             if (hit.collider.CompareTag("Door"))
@@ -207,18 +211,20 @@ public class InteractorRework : MonoBehaviour
                     fishDone = true;
                     Debug.Log("Fish completed");
                     foodEffect.Stop();
-                    dialogueManager.fish += 1;
+                    dialogueManager.StartDialogue(4);
                 }
                 if (index == 1)
                 {
                     showerDone = true;
                     Debug.Log("Shower completed");
                     waterEffect.Stop();
+                    dialogueManager.StartDialogue(3);
                 }
                 if (index == 2)
                 {
                     eatDone = true;
                     Debug.Log("Eat completed");
+                    dialogueManager.StartDialogue(2);
                 }
 
                 soundManager.stopAudio();

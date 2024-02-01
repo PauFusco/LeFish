@@ -5,36 +5,17 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
-    public enum StatusState { START, SUBTLE1, DEEP, SUBTLE2, REALITY };
-    public enum FishState { FEED1, FEED2, WTF };
-    public enum BedState { NOSLEEP, NIGHT1, NIGHT2, NIGHT3 };
-    public enum FoodState { BFEAT1, EAT1, FISHMEAT };
-    public enum ShowerState { OTAKU1, OTAKU2, OTAKU3 };
-
-    public string[] statusTexts;
-    public string[] fishTexts;
-    public string[] bedTexts;
-    public string[] foodTexts;
-    public string[] showerTexts;
-
-    [HideInInspector]
-    public StatusState status;
-    [HideInInspector]
-    public FishState fish;
-    [HideInInspector]
-    public BedState bed;
-    [HideInInspector]
-    public FoodState food;
-    [HideInInspector]
-    public ShowerState shower;
+    public string[] texts;
 
     public TextMeshProUGUI textComponent;
 
     public float textSpeed;
+
+    public bool isTextDisplaying;
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(this);
+        isTextDisplaying = false;
         textComponent.text = string.Empty;
     }
 
@@ -50,20 +31,23 @@ public class DialogueManager : MonoBehaviour
         //}
     }
 
-    //void StartDialogue()
-    //{
-    //    index = 0;
-    //    StartCoroutine(TypeLine());
-    //}
+    public void StartDialogue(int index)
+    {
+        isTextDisplaying = true;
+        StartCoroutine(TypeLine(index));
+    }
 
-    //IEnumerator TypeLine()
-    //{
-    //    foreach (char c in lines[index].ToCharArray())
-    //    {
-    //        textComponent.text += c;
-    //        yield return new WaitForSeconds(textSpeed);
-    //    }
-    //}
+    IEnumerator TypeLine(int index)
+    {
+        foreach (char c in texts[index].ToCharArray())
+        {
+            textComponent.text += c;
+            yield return new WaitForSeconds(textSpeed);
+        }
+        yield return new WaitForSeconds(4);
+        textComponent.text = string.Empty;
+        isTextDisplaying = false;
+    }
 
     //void NextLine()
     //{
