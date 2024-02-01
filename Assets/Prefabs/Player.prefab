@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 7370226877315268161}
   - component: {fileID: 2342166640161811400}
   - component: {fileID: 7743054395897292458}
+  - component: {fileID: 3154439497513009271}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -257,16 +258,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   progressBar: {fileID: 0}
+  showInteractText: {fileID: 0}
+  showShortInteractText: {fileID: 0}
   currentProgress: 0
   maxProgress: 100
   lerpSpeed: 0
-  todolist: 0000000002000000
+  todolist: 0200000001000000
   ActionLayer:
     serializedVersion: 2
     m_Bits: 128
-  InteractRange: 2
+  ItemLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  InteractRange: 5
   foodEffect: {fileID: 0}
   waterEffect: {fileID: 0}
+  PlayerHand: {fileID: 1876759609830963384}
+  ThrowingForce: 5
 --- !u!114 &4941792807722983499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -414,6 +422,28 @@ MonoBehaviour:
   dialogues: []
   dialogueBuffer: []
   currentDialogue: 
+--- !u!114 &3154439497513009271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4875007119196036730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 054868d0ea7adb843bba353617ffd298, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  texts:
+  - 'What a nice sleep, I should get up... '
+  - I can't go to bed yet, I need to do my chores
+  - That was tasty!
+  - Clean and fresh!
+  - Here you have Morpheus!
+  - Goodnight!
+  textComponent: {fileID: 0}
+  textSpeed: 0
+  isTextDisplaying: 0
 --- !u!1 &5957324346334334537
 GameObject:
   m_ObjectHideFlags: 0

@@ -1428,11 +1428,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7db7f8c7499e84f4eadce31b95a01d18, type: 3}
   m_PrefabInstance: {fileID: 240565386}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &241594229 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1876759609830963384, guid: 0036d4da8bd749b4d83fe7acc7e09056, type: 3}
-  m_PrefabInstance: {fileID: 1133357948}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &251236863
 GameObject:
   m_ObjectHideFlags: 0
@@ -7378,14 +7373,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3154439497513009271, guid: 0036d4da8bd749b4d83fe7acc7e09056, type: 3}
+      propertyPath: textComponent
+      value: 
+      objectReference: {fileID: 96205739}
     - target: {fileID: 4875007119196036730, guid: 0036d4da8bd749b4d83fe7acc7e09056, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 5547770275203735430, guid: 0036d4da8bd749b4d83fe7acc7e09056, type: 3}
-      propertyPath: PlayerHand
-      value: 
-      objectReference: {fileID: 241594229}
     - target: {fileID: 5547770275203735430, guid: 0036d4da8bd749b4d83fe7acc7e09056, type: 3}
       propertyPath: foodEffect
       value: 
@@ -7398,18 +7393,6 @@ PrefabInstance:
       propertyPath: waterEffect
       value: 
       objectReference: {fileID: 820194754}
-    - target: {fileID: 5547770275203735430, guid: 0036d4da8bd749b4d83fe7acc7e09056, type: 3}
-      propertyPath: InteractRange
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5547770275203735430, guid: 0036d4da8bd749b4d83fe7acc7e09056, type: 3}
-      propertyPath: ThrowingForce
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5547770275203735430, guid: 0036d4da8bd749b4d83fe7acc7e09056, type: 3}
-      propertyPath: ItemLayer.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
     - target: {fileID: 5547770275203735430, guid: 0036d4da8bd749b4d83fe7acc7e09056, type: 3}
       propertyPath: showInteractText
       value: 
