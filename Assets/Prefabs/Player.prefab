@@ -260,7 +260,7 @@ MonoBehaviour:
   currentProgress: 0
   maxProgress: 100
   lerpSpeed: 0
-  todolist: 
+  todolist: 0000000002000000
   ActionLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -285,6 +285,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1f473c1758029fa4eb989b83c191ead0, type: 3}
   - {fileID: 8300000, guid: ffaec88d006a03e41ae0ba7a0e047873, type: 3}
   - {fileID: 8300000, guid: 1c9f5902cbb837b4e967c4a7f24a4ca5, type: 3}
+  - {fileID: 8300000, guid: 3376d59426a84cf4fb8f4c9af9f20af9, type: 3}
 --- !u!114 &7370226877315268161
 MonoBehaviour:
   m_ObjectHideFlags: 0

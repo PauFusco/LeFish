@@ -58,6 +58,8 @@ public class InteractorRework : MonoBehaviour
         //todolist.Add(Tasks.FEED_FISH);
         //todolist.Add(Tasks.EAT);
         //todolist.Add(Tasks.SHOWER);
+
+        soundManager.SelectAudio(5, 0.5f);
     }
 
     // Update is called once per frame

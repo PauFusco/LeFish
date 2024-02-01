@@ -7259,22 +7259,6 @@ PrefabInstance:
       propertyPath: waterEffect
       value: 
       objectReference: {fileID: 820194754}
-    - target: {fileID: 5547770275203735430, guid: 0036d4da8bd749b4d83fe7acc7e09056, type: 3}
-      propertyPath: todolist.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5547770275203735430, guid: 0036d4da8bd749b4d83fe7acc7e09056, type: 3}
-      propertyPath: 'todolist.Array.data[0]'
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5547770275203735430, guid: 0036d4da8bd749b4d83fe7acc7e09056, type: 3}
-      propertyPath: 'todolist.Array.data[1]'
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5547770275203735430, guid: 0036d4da8bd749b4d83fe7acc7e09056, type: 3}
-      propertyPath: 'todolist.Array.data[2]'
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 7370226877315268161, guid: 0036d4da8bd749b4d83fe7acc7e09056, type: 3}
       propertyPath: textComponent
       value: 
@@ -7285,7 +7269,7 @@ PrefabInstance:
       objectReference: {fileID: 977454787}
     - target: {fileID: 7998270745438312281, guid: 0036d4da8bd749b4d83fe7acc7e09056, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.46
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 7998270745438312281, guid: 0036d4da8bd749b4d83fe7acc7e09056, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7293,7 +7277,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7998270745438312281, guid: 0036d4da8bd749b4d83fe7acc7e09056, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.49
+      value: -5.5
       objectReference: {fileID: 0}
     - target: {fileID: 7998270745438312281, guid: 0036d4da8bd749b4d83fe7acc7e09056, type: 3}
       propertyPath: m_LocalRotation.w
