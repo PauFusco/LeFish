@@ -64,7 +64,7 @@ public class InteractorRework : MonoBehaviour
     [SerializeField] private float ThrowingForce;
 
     [SerializeField] private Image background;
-    [SerializeField] private float durationFade = 0.5f;
+    [SerializeField] private float durationFade = 1f;
     private Color startColor = new Color(0f, 0f, 0f, 0f);
     private Color endColor = new Color(0f, 0f, 0f, 1f);
 
