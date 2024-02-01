@@ -17,5 +17,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Deep_Arnau.unity
     guid: ea1d0858ef3783b43a98dc29b53cb398
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 33ac6d3dcafdbcc43b267b9819544e16
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

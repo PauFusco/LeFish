@@ -7480,6 +7480,10 @@ PrefabInstance:
       propertyPath: showShortInteractText
       value: 
       objectReference: {fileID: 2022249360}
+    - target: {fileID: 5547770275203735430, guid: 0036d4da8bd749b4d83fe7acc7e09056, type: 3}
+      propertyPath: 'todolist.Array.data[1]'
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7370226877315268161, guid: 0036d4da8bd749b4d83fe7acc7e09056, type: 3}
       propertyPath: textComponent
       value: 
