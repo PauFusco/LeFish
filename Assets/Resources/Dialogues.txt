@@ -1,0 +1,12 @@
+{
+	"dialogue": [
+		{
+			"objectName": "bed",
+			"text": "Hola ratas"
+		},
+		{
+			"objectName": "Fishbowl",
+			"text": "Pesesito"
+		}
+	]
+}

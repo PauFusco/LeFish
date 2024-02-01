@@ -13,6 +13,9 @@ public class PostProcessController : MonoBehaviour
     [SerializeField]
     //private Keyframe value;
     float value;
+
+    public float initValue = 0.5f;
+    public float speed = 1f;
     //private VolumeParameter value;
     // Start is called before the first frame update
     void Start()
@@ -28,10 +31,10 @@ public class PostProcessController : MonoBehaviour
     void Update()
     {
         colorCurves.SetDirty();
-        value += 0.001f;
+        value += 0.001f * speed;
         if (value >= 1.0f)
         {
-            value = 0f;
+            value = initValue;
         }
         colorCurves.hueVsHue.value.MoveKey(0, new Keyframe(0f, value));
     }
