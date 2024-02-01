@@ -6,15 +6,6 @@
             "id": "456ce859-30f2-45bd-b2e4-683557bd3fdc",
             "actions": [
                 {
-                    "name": "UpDown",
-                    "type": "Value",
-                    "id": "eab58bf2-efad-48f0-b2ad-6c52f26f242b",
-                    "expectedControlType": "Axis",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "MoveKeys",
                     "type": "Value",
                     "id": "c03ca817-dd22-4b31-9b96-98562d0ea0dc",
@@ -34,39 +25,6 @@
                 }
             ],
             "bindings": [
-                {
-                    "name": "UpDownVec",
-                    "id": "a2a42068-8554-4fea-a6cf-364924e566e6",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "UpDown",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "817f1b3d-a402-452d-a27d-62523850a639",
-                    "path": "<Keyboard>/leftShift",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "UpDown",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "e2d41707-9008-4058-8c03-d59bf088b1fc",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "UpDown",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
                 {
                     "name": "MoveVector",
                     "id": "51f061b7-8fe1-4122-b026-8a312dfe175b",
